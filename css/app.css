@@ -470,6 +470,65 @@ abbr[title] {
   text-decoration:underline dotted;
   cursor:help;
 }
+/* --- выравнивание по центру --- */
+
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+}
+
+.cards>* {
+  flex:0 0 calc((100% - 42px)/4);
+}
+
+@media(max-width:1000px) {
+  .cards>* {
+    flex-basis:calc((100% - 28px)/3);
+  }
+}
+
+@media(max-width:720px) {
+  .cards>* {
+    flex-basis:calc((100% - 14px)/2);
+  }
+}
+
+@media(max-width:470px) {
+  .cards>* {
+    flex-basis:100%;
+  }
+}
+
+h2:has(+.cards),h2:has(+.dict),h2:has(+.ck),h2:has(+.lf) {
+  text-align:center;
+}
+
+.ck {
+  width:fit-content;
+  max-width:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.dict.card,.lf.card {
+  max-width:560px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.cards.rev .card {
+  text-align:center;
+  font-style:italic;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cards.rev .card p {
+  margin:0;
+}
 
 p,li {
   max-width:75ch;
